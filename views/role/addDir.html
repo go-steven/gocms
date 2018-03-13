@@ -1,0 +1,27 @@
+<!--添加权限窗口 -->
+<div style="padding:10px 50px 20px 50px">
+    <form id="add_role" method="post">
+        <input type="hidden" value="0" name="role_is_menu"></input>
+        <input type="hidden" value="0" name="role_is_dir"></input>
+        <table cellpadding="5">
+            <tr>
+                <td>目录名称:</td>
+                <td><input class="easyui-textbox" type="text" name="role_name" required="true" missingMessage="不能为空"></input>
+                </td>
+            </tr>
+
+            <tr>
+                <td>描述:</td>
+                <td><input class="easyui-textbox" name="role_remarks" data-options="multiline:true" style="height:60px"></input>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align:center;padding:10px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitAddRoleForm()">提交</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearAddRoleForm()">重置</a>
+        </div>
+    </form>
+
+</div>
+
+<script type="text/javascript" src="{{.staticUrl}}/js/role/add.js"></script>

@@ -1,0 +1,78 @@
+<!--添加权限窗口 -->
+<div class="easyui-layout" data-options="fit:true">
+    <!--基础信息窗口 start-->
+    <div data-options="region:'north',split:true" border="false" style="padding:10px 10px 20px 50px">
+
+        <form id="modify_user">
+            <input value="{{.user.Id}}" type="hidden" name="user_id"></input>
+            <table cellpadding="5">
+                <tr>
+                    <td>登陆账号:</td>
+                    <td><input class="easyui-textbox" value="{{.user.Name}}" type="text" name="modify_name" required="true"
+                            missingMessage="不能为空"></input>
+                    </td>
+                    <td>姓名:</td>
+                    <td><input class="easyui-textbox" value="{{.user.Realname}}" type="text" name="modify_realname" required="true"
+                            missingMessage="不能为空"></input>
+                    </td>
+                    <td>手机号:</td>
+                    <td><input class="easyui-textbox" value="{{.user.Phone}}" type="text" name="modify_phone" required="true"
+                            missingMessage="不能为空"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>部门:</td>
+                    <td><input class="easyui-textbox" value="{{.user.Department}}" type="text" name="modify_department" required="true"
+                            missingMessage="不能为空"></input>
+                    </td>
+                    <td>邮箱:</td>
+                    <td>
+                        <input class="easyui-textbox" value="{{.user.Mail}}" type="text" name="modify_email" validtype="email" required="true"
+                            missingMessage="不能为空" invalidMessage="邮箱格式不正确"></input>
+                    </td>
+
+                    <td>新密码:</td>
+                    <td><input class="easyui-textbox" type="password" name="modify_passwd" required="true"  missingMessage="不修改密码请留空"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td><a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitModifyUserForm()">提交</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearModifyUserForm()">重置</a>
+                    </td>
+                    <td> </td>
+                    <td> </td>
+                </tr>
+
+            </table>
+        </form>
+
+    </div>
+    <!--基础信息窗口 end-->
+
+    <!--权限列表展示start-->
+    <div data-options="region:'center'" border="false" style="padding:0px">
+        <table id="update_user_group" title="选择用户组" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th field="id" width="30">管理员组ID</th>
+                    <th field="group_name" width="50">管理员组名称</th>
+                    <th field="remarks" width="50">描述信息</th>
+                    <th field="created" formatter="dataformatter" width="50">添加时间</th>
+                </tr>
+            </thead>
+        </table>
+        <div id="modify_user_toolbar" style="padding:5px;height:auto">
+				  <div>
+					组名称:
+					<input name="modify_user_user_group_name" class="easyui-textbox" style="width: 100px">
+					<a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="modifyUserObj.search()">查询</a>
+				</div>
+			</div>
+    </div>
+    <!--权限列表展示end-->
+</div>
+
+<script type="text/javascript" src="{{.staticUrl}}/js/user/update.js"></script>
